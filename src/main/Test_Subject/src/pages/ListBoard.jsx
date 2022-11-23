@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import BoardService from "../BoardService";
-
+import { Link } from "react-router-dom";
+import { Layout, Menu, Button } from "antd";
+import { useNavigate } from "react-router-dom";
 class ListBoard extends Component {
+
+
   constructor(props) {
     super(props);
     // # 1.
@@ -49,7 +53,13 @@ class ListBoard extends Component {
             </tbody>
           </table>
         </div>
+
+        <button type="button">
+          <Link to="/Writing">글 작성</Link>
+        </button>
+
       </div>
+
     );
   }
 }
