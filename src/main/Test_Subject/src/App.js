@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import ListBoard from "./pages/ListBoard";
+import Writing from "./pages/Writing";
+
 function App() {
   return (
     <Routes>
@@ -12,6 +14,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/board" element={<ListBoard />}></Route>
+      <Route path="/writing" element={<Writing />}></Route>
     </Routes>
   );
 }
