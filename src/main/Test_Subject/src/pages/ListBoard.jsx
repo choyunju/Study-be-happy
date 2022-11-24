@@ -6,24 +6,28 @@ import { useNavigate } from "react-router-dom";
 class ListBoard extends Component {
   constructor(props) {
     super(props);
-    // # 1.
+
     this.state = {
       boards: [],
     };
+
+    this.createBoard = this.createBoard.bind(this);
   }
-  // # 2.
+
   componentDidMount() {
     BoardService.getBoards().then((res) => {
       this.setState({ boards: res.data });
     });
   }
 
-  // # 3.
+  createBoard() {
+    this.props.history.push("/create-board/");
+  }
   render() {
     return (
       <div>
-        <button type="button" class="btn btn-light">
-          <Link to="/Writing">글 작성</Link>
+        <button type="button" class="btn btn-light" onClick={this.createBoard}>
+          글작성
         </button>
         <h2 className="text-center">Boards List</h2>
         <div className="row">
