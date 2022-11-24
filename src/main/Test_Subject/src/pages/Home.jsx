@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Layout, Menu, Button } from "antd";
+import ListBoard from "./ListBoard";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 const { Header, Content, Footer } = Layout;
@@ -47,13 +48,14 @@ export default function Home() {
           }}
         >
           <h3>게시판</h3>
+          <br />
           <div
             className="site-layout-content"
             style={{
               height: "540px",
             }}
           >
-            게시판
+            <ListBoard></ListBoard>
           </div>
         </Content>
         <Footer

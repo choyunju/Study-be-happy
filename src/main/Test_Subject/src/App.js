@@ -1,10 +1,11 @@
+import "bootstrap/dist/css/bootstrap.css";
 import "antd/dist/antd.min.css";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import ListBoard from "./pages/ListBoard";
+// import ListBoard from "./pages/ListBoard";
 import Writing from "./pages/Writing";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/board" element={<ListBoard />}></Route>
+      {/* <Route path="/board" element={<ListBoard />}></Route> */}
       <Route path="/writing" element={<Writing />}></Route>
     </Routes>
   );
