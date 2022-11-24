@@ -32,4 +32,11 @@ public class BoardService {
         return ResponseEntity.ok(board);
     }
 
+    // get board
+    public Board getOneBoard(Integer no) {
+        Board board = boardRepository.findById(no).orElseThrow();
+        return board;
+    }
+
+
 }
