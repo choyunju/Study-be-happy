@@ -31,10 +31,10 @@ public class BoardController {
     }
 
     // get board
+    // 게시판 조회하기
     @GetMapping("/board/{no}")
     public ResponseEntity<Board> getBoardByNo(
             @PathVariable Integer no) {
-
         return boardService.getBoard(no);
     }
 
