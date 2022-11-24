@@ -5,11 +5,8 @@ import java.util.List;
 import com.example.yeppi.entity.Board;
 import com.example.yeppi.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -26,4 +23,19 @@ public class BoardController {
 
         return boardService.getAllBoard();
     }
+
+    // create board
+    @PostMapping("/board")
+    public Board createBoard(@RequestBody Board board) {
+        return boardService.createBoard(board);
+    }
+
+    // get board
+    @GetMapping("/board/{no}")
+    public ResponseEntity<Board> getBoardByNo(
+            @PathVariable Integer no) {
+
+        return boardService.getBoard(no);
+    }
+
 }
