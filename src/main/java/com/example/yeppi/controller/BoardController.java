@@ -3,9 +3,11 @@ package com.example.yeppi.controller;
 import java.util.List;
 
 import com.example.yeppi.entity.Board;
+import com.example.yeppi.repository.BoardRepository;
 import com.example.yeppi.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -38,4 +40,11 @@ public class BoardController {
         return boardService.getBoard(no);
     }
 
+    //Modify board
+    @GetMapping("/modifyBoard")
+    public String modifyBoard(@RequestParam("no") Integer no, @RequestParam("title") String title, @RequestParam("contents") String contents, Model model) throws Exception {
+        Board data = boardService.getOneBoard(no);
+        model.addAttribute("data", data);
+        return "boardModify";
+    }
 }
