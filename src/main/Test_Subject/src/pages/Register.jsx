@@ -234,7 +234,7 @@ const Register = () => {
             ]}
             {...tailFormItemLayout}
           >
-            {/* 주소 수정하기 */}
+            {/* 개인정보 동의 링크 주소 수정하기 */}
             <Checkbox>
               I have read the <a href="/">agreement</a>
             </Checkbox>
