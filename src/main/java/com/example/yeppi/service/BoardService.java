@@ -1,5 +1,6 @@
 package com.example.yeppi.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.yeppi.entity.Board;
@@ -32,11 +33,15 @@ public class BoardService {
         return ResponseEntity.ok(board);
     }
 
-    // get board
-    public Board getOneBoard(Integer no) {
+    // modify board
+    public ResponseEntity<Board> modifyBoard(Integer no, Board modifyBoard) {
         Board board = boardRepository.findById(no).orElseThrow();
-        return board;
+        board.setType(modifyBoard.getType());
+        board.setTitle(modifyBoard.getTitle());
+        board.setContents(modifyBoard.getContents());
+        board.setUpdatedTime(new Date());
+
+        Board endModifyBoard = boardRepository.save(board);
+        return ResponseEntity.ok(endModifyBoard);
     }
-
-
 }

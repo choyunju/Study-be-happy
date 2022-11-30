@@ -41,10 +41,11 @@ public class BoardController {
     }
 
     //Modify board
-    @GetMapping("/modifyBoard")
-    public String modifyBoard(@RequestParam("no") Integer no, @RequestParam("title") String title, @RequestParam("contents") String contents, Model model) throws Exception {
-        Board data = boardService.getOneBoard(no);
-        model.addAttribute("data", data);
-        return "boardModify";
+    //게시판 수정하기
+    @GetMapping("/modifyBoard/{no}")
+    public ResponseEntity<Board> modifyBoard(
+            @PathVariable Integer no, @RequestBody Board board) {
+
+        return boardService.modifyBoard(no, board);
     }
 }
