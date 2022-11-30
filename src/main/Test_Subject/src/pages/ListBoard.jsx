@@ -21,13 +21,17 @@ class ListBoard extends Component {
   }
 
   createBoard() {
+    // <Link to="/create-board">글작성</Link>;
     this.props.history.push("/create-board/");
   }
+  // readBoard(no) {
+  //   this.props.history.push("/read-board/${no}");
+  // }
   render() {
     return (
       <div>
         <button type="button" class="btn btn-light" onClick={this.createBoard}>
-          글작성
+          <Link to="/create-board">글작성</Link>
         </button>
         <h2 className="text-center">Boards List</h2>
         <div className="row">
@@ -38,21 +42,20 @@ class ListBoard extends Component {
                 <th>타이틀 </th>
                 <th>작성자 </th>
                 <th>작성일 </th>
-                <th>갱신일 </th>
-                <th>좋아요수</th>
-                <th>조회수</th>
               </tr>
             </thead>
             <tbody>
               {this.state.boards.map((board) => (
                 <tr key={board.no}>
                   <td> {board.no} </td>
+                  {/* <td>
+                    <a onClick={() => this.readBoard(board.no)}>
+                      {board.title}{" "}
+                    </a>
+                  </td> */}
                   <td> {board.title} </td>
                   <td> {board.memberNo} </td>
                   <td> {board.createdTime} </td>
-                  <td> {board.updatedTime} </td>
-                  <td> {board.likes} </td>
-                  <td> {board.counts} </td>
                 </tr>
               ))}
             </tbody>
