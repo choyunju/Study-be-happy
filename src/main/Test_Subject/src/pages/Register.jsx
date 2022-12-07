@@ -93,13 +93,17 @@ const Register = () => {
       email: values.email,
     };
     axios
-      .post("/register", JSON.stringify(data))
+      .post("/register", JSON.stringify(data),{
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then(function (response) {
         console.log("응답!");
       })
       .catch(function (error) {
         console.log("오류!");
-        // console.log(JSON.stringify(data));
+        console.log(JSON.stringify(data));
       });
 
     //fetch로 보내기
